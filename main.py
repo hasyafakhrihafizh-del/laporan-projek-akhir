@@ -22,3 +22,4 @@ class Barang:
             f"{self.__nama} | "
             f"Rp{self.__harga}"
         )
+        
