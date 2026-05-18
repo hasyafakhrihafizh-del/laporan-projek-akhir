@@ -1,1 +1,1 @@
-adsfujhgjhg
+print("hello word")
