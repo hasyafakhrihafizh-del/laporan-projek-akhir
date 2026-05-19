@@ -1,9 +1,21 @@
+import os
+
 def simpan_transaksi(transaksi, bayar, kembalian):
-    file = open("data/transaksi.txt", "a")
+
+    folder = "data"
+
+    # Membuat folder jika belum ada
+    if not os.path.exists(folder):
+        os.makedirs(folder)
+
+    path_file = os.path.join(folder, "transaksi.txt")
+
+    file = open(path_file, "a")
 
     file.write("===== TRANSAKSI =====\n")
 
     for item in transaksi.daftar_belanja:
+
         file.write(
             f"{item['nama']} | "
             f"{item['jumlah']} x "

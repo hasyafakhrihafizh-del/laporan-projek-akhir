@@ -2,14 +2,14 @@ from models_barang import Barang
 from models_transaksi import Transaksi
 from simpan_transaksi import simpan_transaksi
 
-# Object Barang
+# Data barang
 barang1 = Barang("B001", "Indomie", 3500)
 barang2 = Barang("B002", "Teh Botol", 5000)
 barang3 = Barang("B003", "Roti", 7000)
 
 daftar_barang = [barang1, barang2, barang3]
 
-# Object Transaksi
+# Membuat objek transaksi
 transaksi = Transaksi()
 
 while True:
@@ -31,7 +31,19 @@ while True:
         print("Barang tidak ditemukan!")
         continue
 
-    jumlah = int(input("Masukkan jumlah: "))
+    # Input jumlah aman
+    while True:
+        try:
+            jumlah = int(input("Masukkan jumlah: "))
+
+            if jumlah <= 0:
+                print("Jumlah harus lebih dari 0!")
+                continue
+
+            break
+
+        except ValueError:
+            print("Input harus berupa angka!")
 
     transaksi.tambah_barang(barang_dipilih, jumlah)
 
@@ -46,7 +58,18 @@ transaksi.tampilkan_struk()
 # Hitung pembayaran
 total = transaksi.hitung_total()
 
-bayar = int(input("Masukkan uang pembayaran: "))
+while True:
+    try:
+        bayar = int(input("Masukkan uang pembayaran: "))
+
+        if bayar < total:
+            print("Uang tidak cukup!")
+            continue
+
+        break
+
+    except ValueError:
+        print("Input harus angka!")
 
 kembalian = bayar - total
 
