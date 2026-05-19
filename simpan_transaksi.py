@@ -4,7 +4,6 @@ def simpan_transaksi(transaksi, bayar, kembalian):
 
     folder = "data"
 
-    # Membuat folder jika belum ada
     if not os.path.exists(folder):
         os.makedirs(folder)
 
