@@ -1,10 +1,27 @@
-from models_barang import Barang
+from models_barang import Barang,Makanan,Minuman
 from models_transaksi import Transaksi
 from simpan_transaksi import simpan_transaksi
 
-barang1 = Barang("B001", "Indomie", 3500)
-barang2 = Barang("B002", "Teh Botol", 5000)
-barang3 = Barang("B003", "Roti", 7000)
+barang1 = Makanan(
+    "B001",
+    "Indomie",
+    3500,
+    "20 Juni 2026"
+)
+
+barang2 = Minuman(
+    "B002",
+    "Teh Botol",
+    5000,
+    "500ml"
+)
+
+barang3 = Makanan(
+    "B003",
+    "Roti",
+    7000,
+    "18 Juni 2026"
+)
 
 daftar_barang = [barang1, barang2, barang3]
 
