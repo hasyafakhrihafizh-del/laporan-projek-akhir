@@ -1,4 +1,16 @@
-class Barang:
+from abc import ABC, abstractmethod
+
+
+
+class BarangAbstract(ABC):
+
+    @abstractmethod
+    def tampilkan_barang(self):
+        pass
+
+
+
+class Barang(BarangAbstract):
 
     def __init__(self, kode, nama, harga):
 
@@ -25,7 +37,6 @@ class Barang:
             f"{self.__nama} | "
             f"Rp{self.__harga}"
         )
-
 
 
 class Makanan(Barang):
